@@ -1,1 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>АКА Менеджер</title>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#2E7D32">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="АКА Менеджер">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div id="app">
 
+        <div id="screen-main" class="screen active">
+            <div class="top-bar">
+                <div class="brand">
+                    <span class="logo">👨‍💼</span>
+                    <span>АКА Менеджер</span>
+                </div>
+            </div>
+            <div id="user" class="user-greet"></div>
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-num" id="stat-new">0</div>
+                    <div class="stat-label">Новых</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num" id="stat-active">0</div>
+                    <div class="stat-label">В работе</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num" id="stat-done">0</div>
+                    <div class="stat-label">Доставлено</div>
+                </div>
+            </div>
+            <div class="menu">
+                <button class="menu-btn" onclick="showScreen('orders')">
+                    <span class="ico">📦</span>
+                    <span>Все заказы</span>
+                    <span id="orders-count" class="menu-badge"></span>
+                </button>
+                <button class="menu-btn" onclick="showScreen('couriers')">
+                    <span class="ico">🚚</span>
+                    <span>Курьеры</span>
+                    <span id="couriers-count" class="menu-badge"></span>
+                </button>
+                <button class="menu-btn" onclick="showScreen('shops')">
+                    <span class="ico">🏪</span>
+                    <span>Магазины</span>
+                </button>
+                <button class="menu-btn" onclick="showScreen('fines')">
+                    <span class="ico">⚠️</span>
+                    <span>Штрафы</span>
+                </button>
+                <button class="menu-btn" onclick="showScreen('report')">
+                    <span class="ico">📊</span>
+                    <span>Отчёт за сегодня</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="screen-orders" class="screen">
+            <div class="top-bar">
+                <button class="back" onclick="showScreen('main')">⬅</button>
+                <div class="title">Все заказы</div>
+            </div>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all" onclick="setFilter('all')">Все</button>
+                <button class="filter-btn" data-filter="new" onclick="setFilter('new')">Новые</button>
+                <button class="filter-btn" data-filter="active" onclick="setFilter('active')">В работе</button>
+                <button class="filter-btn" data-filter="done" onclick="setFilter('done')">Готово</button>
+            </div>
+            <div class="content" id="orders-list"></div>
+        </div>
+
+        <div id="screen-couriers" class="screen">
+            <div class="top-bar">
+                <button class="back" onclick="showScreen('main')">⬅</button>
+                <div class="title">Курьеры</div>
+            </div>
+            <div class="content" id="couriers-list"></div>
+        </div>
+
+        <div id="screen-shops" class="screen">
+            <div class="top-bar">
+                <button class="back" onclick="showScreen('main')">⬅</button>
+                <div class="title">Магазины</div>
+            </div>
+            <div class="content" id="shops-list"></div>
+        </div>
+
+        <div id="screen-fines" class="screen">
+            <div class="top-bar">
+                <button class="back" onclick="showScreen('main')">⬅</button>
+                <div class="title">Штрафы</div>
+            </div>
+            <div class="content" id="fines-list"></div>
+        </div>
+
+        <div id="screen-report" class="screen">
+            <div class="top-bar">
+                <button class="back" onclick="showScreen('main')">⬅</button>
+                <div class="title">Отчёт за сегодня</div>
+            </div>
+            <div class="content" id="report-content"></div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

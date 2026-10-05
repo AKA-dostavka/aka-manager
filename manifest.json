@@ -1,1 +1,12 @@
-
+{
+    "name": "АКА Менеджер",
+    "short_name": "АКА Менеджер",
+    "description": "Приложение менеджера службы доставки",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#2E7D32",
+    "theme_color": "#2E7D32",
+    "lang": "ru"
+}

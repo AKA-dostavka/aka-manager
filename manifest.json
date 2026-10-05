@@ -8,5 +8,13 @@
     "orientation": "portrait",
     "background_color": "#2E7D32",
     "theme_color": "#2E7D32",
-    "lang": "ru"
+    "lang": "ru",
+    "icons": [
+        {
+            "src": "/manager-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ]
 }
